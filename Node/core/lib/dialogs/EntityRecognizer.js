@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var utils = require("../utils");
 var chrono = require("chrono-node");
 var EntityRecognizer = (function () {
@@ -127,8 +128,19 @@ var EntityRecognizer = (function () {
         }
         return Number.NaN;
     };
-    EntityRecognizer.parseBoolean = function (utterance) {
+    EntityRecognizer.parseBoolean = function (utterance, context) {
         utterance = utterance.trim();
+        if (context) {
+            var locale = context.preferredLocale();
+            var pattern = context.localizer.trygettext(locale, 'yesExp');
+            if (pattern) {
+                EntityRecognizer.yesExp = new RegExp(pattern, 'i');
+            }
+            pattern = context.localizer.trygettext(locale, 'noExp');
+            if (pattern) {
+                EntityRecognizer.noExp = new RegExp(pattern, 'i');
+            }
+        }
         if (EntityRecognizer.yesExp.test(utterance)) {
             return true;
         }
