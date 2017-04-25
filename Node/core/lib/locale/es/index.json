@@ -1,6 +1,3 @@
 {
-    "Hello World": "HOLA DESDE BOT",
-    "yesExp": "^1$|^si$",
-    "noExp": "^2$|^no$",
-    "locale_updated": "You locale has been updated to es"
+    "Hello World": "HOLA DESDE BOT"
 }
