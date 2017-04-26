@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils = require("../utils");
 var chrono = require("chrono-node");
+var consts = require("../consts");
 var EntityRecognizer = (function () {
     function EntityRecognizer() {
     }
@@ -132,11 +133,11 @@ var EntityRecognizer = (function () {
         utterance = utterance.trim();
         if (context) {
             var locale = context.preferredLocale();
-            var pattern = context.localizer.trygettext(locale, 'yesExp');
+            var pattern = context.localizer.trygettext(locale, 'yesExp', consts.Library.system);
             if (pattern) {
                 EntityRecognizer.yesExp = new RegExp(pattern, 'i');
             }
-            pattern = context.localizer.trygettext(locale, 'noExp');
+            pattern = context.localizer.trygettext(locale, 'noExp', consts.Library.system);
             if (pattern) {
                 EntityRecognizer.noExp = new RegExp(pattern, 'i');
             }

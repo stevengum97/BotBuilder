@@ -10,6 +10,6 @@
     "default_time": "No se pudo reconocer el formato de la fecha. Por favor vuelva a intentar (MM/DD/YYYY HH:MM:SS).",
     "default_file": "No se pudo recibir el archivo. Por favor vuelva a intentar.",
     "default_error": "Oops. Ocurrió un problema. Por favor vuelva a intentar.",
-    "yesExp": "^1$|^si$",
-    "noExp": "^2$|^no$"
+    "yesExp": "^(1|s|si|vale|ok)(\\W|$)",
+    "noExp": "^(2|n|no|falso)(\\W|$)"
 }   
