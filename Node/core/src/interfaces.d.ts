@@ -250,7 +250,8 @@ interface IEntity<T> {
     endIndex?: number;
     score?: number;
     resolution?: {
-        values?: string|string[];
+        value?: string;
+        values?: string[];
     }
 }
 

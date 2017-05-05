@@ -79,7 +79,7 @@ export class EntityRecognizer {
 
    static findListEntity(entities: IEntity<string>[], value: string): IEntity<string> {
         for (var i = 0; entities && i < entities.length; i++) {
-            if (entities[i].resolution) {
+            if (entities[i].resolution && entities[i].resolution.values) {
                 for (var j = 0; j < entities[i].resolution.values.length; j++) {
                     if (entities[i].resolution.values[j] == value) {
                         return entities[i];
@@ -103,7 +103,7 @@ export class EntityRecognizer {
     static findAllListEntities(entities: IEntity<string>[], value: string): IEntity<string>[] {
         var found: IEntity<string>[] = [];
         for (var i = 0; entities && i < entities.length; i++) {
-            if (entities[i].resolution) {
+            if (entities[i].resolution && entities[i].resolution.values) {
                 for (var j = 0; j < entities[i].resolution.values.length; j++) {
                     if (entities[i].resolution.values[j] == value) {
                         found.push(entities[i]);
