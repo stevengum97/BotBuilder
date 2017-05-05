@@ -249,6 +249,9 @@ interface IEntity<T> {
     startIndex?: number;
     endIndex?: number;
     score?: number;
+    resolution?: {
+        values?: string|string[];
+    }
 }
 
 type TextType = string|string[];
