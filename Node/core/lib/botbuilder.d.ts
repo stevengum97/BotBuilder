@@ -64,7 +64,7 @@ export interface IEvent {
     /** Defines type of event. Should be 'message' for an IMessage. */
     type: string;
 
-    /** SDK thats processing the event. Will always be 'botbuilder'. */
+    /** SDK that's processing the event. Will always be 'botbuilder'. */
     agent: string;
 
     /** The original source of the event (i.e. 'facebook', 'skype', 'slack', etc.) */
@@ -148,7 +148,7 @@ export interface IMessage extends IEvent {
     /** Local time when message was sent (set by client or bot, Ex: 2016-09-23T13:07:49.4714686-07:00.) */
     localTimestamp?: string;
 
-    /** Text to be displayed by as fall-back and as short description of the message content in e.g. list of recent conversations. */  
+    /** Text to be displayed by as fallback and as short description of the message content in e.g. list of recent conversations. */  
     summary?: string;
 
     /** Spoken message as [Speech Synthesis Markup Language](https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx). */
@@ -477,7 +477,7 @@ export interface ILocalizer {
     /**
      * Loads a localized string for the specified language.
      * @param locale Desired locale of the string to return.
-     * @param msgid String to use as a key in the localized string table. Typically this will just be the english version of the string.
+     * @param msgid String to use as a key in the localized string table. Typically this will just be the English version of the string.
      * @param namespace (Optional) namespace for the msgid keys.
      */
     trygettext(locale: string, msgid: string, namespace?: string): string;
@@ -485,7 +485,7 @@ export interface ILocalizer {
     /**
      * Loads a localized string for the specified language.
      * @param locale Desired locale of the string to return.
-     * @param msgid String to use as a key in the localized string table. Typically this will just be the english version of the string.
+     * @param msgid String to use as a key in the localized string table. Typically this will just be the English version of the string.
      * @param namespace (Optional) namespace for the msgid keys.
      */
     gettext(locale: string, msgid: string, namespace?: string): string;
@@ -568,7 +568,7 @@ export interface IRecognizeContext {
     /**
      * Loads a localized string for the messages language. If arguments are passed the localized string
      * will be treated as a template and formatted using [sprintf-js](https://github.com/alexei/sprintf.js) (see their docs for details.) 
-     * @param msgid String to use as a key in the localized string table. Typically this will just be the english version of the string.
+     * @param msgid String to use as a key in the localized string table. Typically this will just be the English version of the string.
      * @param args (Optional) arguments used to format the final output string. 
      */
     gettext(msgid: string, ...args: any[]): string;
@@ -1708,7 +1708,7 @@ export class Session {
     /**
      * Loads a localized string for the messages language. If arguments are passed the localized string
      * will be treated as a template and formatted using [sprintf-js](https://github.com/alexei/sprintf.js) (see their docs for details.) 
-     * @param msgid String to use as a key in the localized string table. Typically this will just be the english version of the string.
+     * @param msgid String to use as a key in the localized string table. Typically this will just be the English version of the string.
      * @param args (Optional) arguments used to format the final output string. 
      * @example
      * <pre><code>
@@ -1826,7 +1826,7 @@ export class Session {
      * dialog had called endDialog(). A special [ResumeReason.canceled](/en-us/node/builder/chat-reference/classes/_botbuilder_d_.resumereason#canceled) 
      * will be returned to indicate that the dialog was canceled. 
      * @param dialogId 
-     * * __dialogId:__ _{string}_ - ID of the dialog to end. If multiple occurences of the dialog exist on the dialog stack, the last occurance will be canceled.
+     * * __dialogId:__ _{string}_ - ID of the dialog to end. If multiple occurences of the dialog exist on the dialog stack, the last occurrence will be canceled.
      * * __dialogId:__ _{number}_ - Index of the dialog on the stack to cancel. This is the preferred way to cancel a dialog from an action handler as it ensures that the correct instance is canceled.
      * @param replaceWithId (Optional) specifies an ID to start in the canceled dialogs place. This prevents the dialogs parent from being resumed.
      * @param replaceWithArgs (Optional) arguments to pass to the new dialog.
@@ -1846,7 +1846,7 @@ export class Session {
     /** 
      * Immediately ends the current batch and delivers any queued up messages.
      * @param done (Optional) function called when the batch was either successfully delievered or failed for some reason. 
-     * @param done.err Any error that occured during the send.
+     * @param done.err Any error that occurred during the send.
      * @param done.addresses An array of address objects returned for each individual message within the batch. These address objects contain the ID of the posted messages so can be used to update or delete a message in the future.
      */
     sendBatch(done?: (err: Error, addresses?: IAddress[]) => void): void;
@@ -2046,7 +2046,7 @@ export class Message implements IIsMessage {
     /** Composes a complex and randomized reply to the user.  */
     compose(prompts: string[][], ...args: any[]): Message;
 
-    /** Text to be displayed by as fall-back and as short description of the message content in e.g. list of recent conversations. */  
+    /** Text to be displayed by as fallback and as short description of the message content in e.g. list of recent conversations. */  
     summary(text: TextType, ...args: any[]): Message;
 
     /** Hint for how clients should layout multiple attachments. The default value is 'list'. */ 
@@ -2486,7 +2486,7 @@ export class ReceiptItem implements IIsReceiptItem {
     /** Text field appears just below subtitle, differs from Subtitle in font styling only. */  
     text(text: TextType, ...args: any[]): ReceiptItem;
     
-    /** Image to display on the card. Some channels may either send the image as a seperate message or simply include a link to the image. */  
+    /** Image to display on the card. Some channels may either send the image as a separate message or simply include a link to the image. */  
     image(img: ICardImage|IIsCardImage): ReceiptItem;
 
     /** Amount with currency. */
@@ -2616,7 +2616,7 @@ export abstract class Dialog extends ActionSet {
      * When the score is less than 1.0, every dialog on the stack will have its 
      * [recognizeAction()](#recognizeaction) method called as well to see if there are any named
      * actions bound to the dialog that better matches the users utterance. Global actions registered 
-     * at the bot level will also be evaluated. If the dialog has a score higher then any bound actions,
+     * at the bot level will also be evaluated. If the dialog has a score higher than any bound actions,
      * the dialogs [replyReceived()](#replyreceived) method will be called with the result object 
      * returned from the recognize() call.  This lets the dialog pass additional data collected during
      * the recognize phase to the replyReceived() method for handling.
@@ -2632,7 +2632,7 @@ export abstract class Dialog extends ActionSet {
 
     /**
      * Binds an action to the dialog that will make it the active dialog anytime it's triggered.
-     * The default behaviour is to interupt any existing dialog by clearing the stack and starting 
+     * The default behaviour is to interrupt any existing dialog by clearing the stack and starting 
      * the dialog at the root of the stack.  The dialog being interrupted can intercept this 
      * interruption by adding a custom [onInterrupted](/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionsoptions#oninterrupted) 
      * handler to their trigger action options.  Additionally, you can customize the way the 
@@ -2793,7 +2793,7 @@ export class Library {
     };
 
     /** 
-     * The libraries unique namespace. This is used to issolate the libraries dialogs and localized
+     * The libraries unique namespace. This is used to isolate the libraries dialogs and localized
      * prompts. 
      */
     readonly name: string;
@@ -2826,7 +2826,7 @@ export class Library {
      * for details.
      * @param context Read-only recognizer context for the current conversation.
      * @param callback Function that should be invoked upon completion of the recognition.
-     * @param callback.err Any error that occured during the operation.
+     * @param callback.err Any error that occurred during the operation.
      * @param callback.result The result of the recognition operation. 
      */
     recognize(context: IRecognizeContext, callback: (err: Error, result: IIntentRecognizerResult) => void): void;
@@ -2842,12 +2842,12 @@ export class Library {
      * handling of the message you should call [selectRoute()](#selectroute) with one of the 
      * returned results. 
      * 
-     * The default search logic can be overriden using [onFindRoute()](#onfindroute) and only the
-     * current library is searched so you should call `findRoutes()` seperately for each library 
+     * The default search logic can be overridden using [onFindRoute()](#onfindroute) and only the
+     * current library is searched so you should call `findRoutes()` separately for each library 
      * within the hierarchy.
      * @param context Read-only recognizer context for the current conversation.
      * @param callback Function that should be invoked with the found routes.
-     * @param callback.err Any error that occured during the operation.
+     * @param callback.err Any error that occurred during the operation.
      * @param callback.routes List of routes best suited to handle the current message. 
      */
     findRoutes(context: IRecognizeContext, callback: (err: Error, routes: IRouteResult[]) => void): void
@@ -2861,7 +2861,7 @@ export class Library {
 
     /**
      * Triggers the handling of the current message using the selected route. The default logic can
-     * be overriden using [onSelectRoute()](#onselectroute).
+     * be overridden using [onSelectRoute()](#onselectroute).
      * @param session Session object for the current conversation.
      * @param route Route result returned from a previous call to [findRoutes()](#findroutes).
      */
@@ -2878,7 +2878,7 @@ export class Library {
      * must be a member of the current library, otherwise a score of 0.0 will be returned.
      * @param context Read-only recognizer context for the current conversation.
      * @param callback Function that should be invoked with the found routes.
-     * @param callback.err Any error that occured during the operation.
+     * @param callback.err Any error that occurred during the operation.
      * @param callback.routes List of routes best suited to handle the current message.
      * @param dialogStack (Optional) dialog stack to search over. The default behaviour is to search over the sessions current dialog stack. 
      */
@@ -2895,7 +2895,7 @@ export class Library {
      * Searches the sessions dialog stack to see if any actions have been triggered.
      * @param context Read-only recognizer context for the current conversation.
      * @param callback Function that should be invoked with the found routes.
-     * @param callback.err Any error that occured during the operation.
+     * @param callback.err Any error that occurred during the operation.
      * @param callback.routes List of routes best suited to handle the current message.
      * @param dialogStack (Optional) dialog stack to search over. The default behaviour is to search over the sessions current dialog stack. 
      */
@@ -2912,7 +2912,7 @@ export class Library {
      * Searches the library to see if any global actions have been triggered.
      * @param context Read-only recognizer context for the current conversation.
      * @param callback Function that should be invoked with the found routes.
-     * @param callback.err Any error that occured during the operation.
+     * @param callback.err Any error that occurred during the operation.
      * @param callback.routes List of routes best suited to handle the current message.
      */
     findGlobalActionRoutes(context: IRecognizeContext, callback: (err: Error, routes: IRouteResult[]) => void): void;
@@ -2926,7 +2926,7 @@ export class Library {
 
     /**
      * Registers or returns a dialog from the library.
-     * @param id Unique ID of the dialog being regsitered or retrieved.
+     * @param id Unique ID of the dialog being registered or retrieved.
      * @param dialog (Optional) dialog or waterfall to register.
      * * __dialog:__ _{Dialog}_ - Dialog to add.
      * * __dialog:__ _{IDialogWaterfallStep[]}_ - Waterfall of steps to execute. See [IDialogWaterfallStep](/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.idialogwaterfallstep.html) for details.
@@ -2963,7 +2963,7 @@ export class Library {
      * Enumerates all of the libraries child libraries. The caller should take appropriate steps to
      * avoid circular references when enumerating the hierarchy. In most cases calling 
      * [libraryList()](#librarylist) is a better choice as it already contains logic to avoid cycles.
-     * @param callback Iterator function to call with each child libray.
+     * @param callback Iterator function to call with each child library.
      * @param callback.library The current child.
      */
     forEachLibrary(callback: (library: Library) => void): void;
@@ -3012,7 +3012,7 @@ export class Library {
      * Helper method called from the various route finding methods to manage adding a candidate
      * route to the result set. 
      * 
-     * * If the score is greater then the current best match in the set a new result set will be returned containing just the new match. 
+     * * If the score is greater than the current best match in the set a new result set will be returned containing just the new match. 
      * * If the score is equal to the current best match it will be added to the existing set. 
      * * If the score is less than the current best match it will be ignored.
      * @param route The candidate route to add to the set.
@@ -3022,9 +3022,9 @@ export class Library {
 
     /**
      * Finds the best route to use within a result set containing multiple ambiguous routes. The
-     * following disambigution strategy will be used:
+     * following disambiguation  strategy will be used:
      * 
-     * 1. __<custom>__: Custom route types are the highest priority and will alwsays be preferred. This lets the developer override routing within a bot in very powerful way.  
+     * 1. __<custom>__: Custom route types are the highest priority and will always be preferred. This lets the developer override routing within a bot in very powerful way.  
      * 2. __ActiveDialog__: The active dialog is the next highest priority.
      * 3. __StackAction__: Stack actions are the next highest priority and the action with the deepest stack position will be returned.
      * 4. __GlobalAction__: Global actions are the lowest priority. If a `dialogStack` is past in the actions from the library deepest on the stack will be favored. Otherwise the first one will be returned.
@@ -3106,7 +3106,7 @@ export class Prompt<T extends IPromptFeatures> extends Dialog {
     onFormatMessage(handler: (session: Session, text: TextType, speak: TextType, callback: (err: Error, message?: IMessage) => void)=> void): Prompt<any>;
 
     /**
-     * Registers a handler that will be called everytime the prompt receives a reply from the user.
+     * Registers a handler that will be called every time the prompt receives a reply from the user.
      * The handlers `callback()` can be used to return a confidence score that it understood the 
      * users input as well as the value that should be returned to the caller of the prompt. 
      * 
@@ -3160,7 +3160,7 @@ export class Prompt<T extends IPromptFeatures> extends Dialog {
     matchesAny(intent: RegExp[]|string[], dialogId: string|IDialogWaterfallStep[]|IDialogWaterfallStep, dialogArgs?: any): IntentDialog;
 
     /**
-     * Adds a new recognizer plugin to the Prompt which will be run everytime the user replies
+     * Adds a new recognizer plugin to the Prompt which will be run every time the user replies
      * to the prompt.
      * @param plugin The recognizer to add. 
      */
@@ -3209,23 +3209,23 @@ export class PromptChoice extends Prompt<IPromptChoiceFeatures> {
      * twice, once to get the list of choices to display and a second time to get the list of choices
      * to recognize over.
      * @param context Read-only recognizer context for the current conversation. 
-     * @param recognizePhase If true, the list of choices will be used to recognize the users utterance. Otherwise they will be used to render a list of available choices to the user. 
+     * @param recognizePhrase If true, the list of choices will be used to recognize the users utterance. Otherwise they will be used to render a list of available choices to the user. 
      * @param callback Function that will be called with the prompts list of choices.
      */
-    findChoices(context: IRecognizeContext, recognizePhase: boolean, callback: (err: Error, choices: IChoice[]) => void): void;
+    findChoices(context: IRecognizeContext, recognizePhrase: boolean, callback: (err: Error, choices: IChoice[]) => void): void;
 
     /**
      * Registers a handler to provide a dynamic list of choices. The handler will be called at least
      * twice during the lifetime of the prompt. Once to generate a list of choices to display to the
      * user and a second time to retrieve the list of choices to compare against the users utterance.
      * No caching of the returned choices is done and the handler will be called for every turn of ability
-     * conversation so you shoudl implement your own caching as appropriate.
+     * conversation so you should implement your own caching as appropriate.
      * 
      * Multiple handlers can be registered and the first handler to return a valid (not `null`) list 
      * of choices will be used.
-     * @param handler Function to call when a list of choices is need. The `recognizePhase` parameter will be "true" if the choices will be used to recognize the users response. 
+     * @param handler Function to call when a list of choices is need. The `recognizePhrase` parameter will be "true" if the choices will be used to recognize the users response. 
      */
-    onChoices(handler: (context: IRecognizeContext, callback: (err: Error, choices?: IChoice[]) => void, recognizePhase?: boolean) => void): PromptChoice;
+    onChoices(handler: (context: IRecognizeContext, callback: (err: Error, choices?: IChoice[]) => void, recognizePhrase?: boolean) => void): PromptChoice;
 
     /**
      * Returns a message containing a list of choices.
@@ -3233,7 +3233,7 @@ export class PromptChoice extends Prompt<IPromptChoiceFeatures> {
      * @param listStyle Style of list to include in message.
      * @param text Text of the message.
      * @param speak (Optional) SSML to return with the message. This can be null.
-     * @param choices (Optional) list of choices to include in the message. If ommitted the message will be sent without including choices.
+     * @param choices (Optional) list of choices to include in the message. If omitted the message will be sent without including choices.
      */
     static formatMessage(session: Session, listStyle: ListStyle, text: TextType, speak?: TextType, choices?: IChoice[]): IMessage;
 }
@@ -3280,7 +3280,7 @@ export class PromptTime extends Prompt<IPromptFeatures> {
 
 declare global {
     /**
-     * Extensible set of built-in prompts. For TypeScript developers you can use interface decliration
+     * Extensible set of built-in prompts. For TypeScript developers you can use interface declaration
      * merging to add new global prompts in a way that will be TypeScript aware.
      */
     export interface IPrompts {
@@ -3325,7 +3325,7 @@ declare global {
          * * __prompt:__ _{string[]}_ - Array of possible messages to send user. One will be chosen at random. 
          * * __prompt:__ _{IMessage|IIsMessage}_ - Initial message to send the user. Message can contain attachments. Any [listStyle](/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.ipromptoptions.html#liststyle) options will be ignored.
          * @param choices 
-         * * __choices:__ _{string}_ - List of choices as a pipe ('|') delimted string.
+         * * __choices:__ _{string}_ - List of choices as a pipe ('|') delimited string.
          * * __choices:__ _{Object}_ - List of choices expressed as an Object map. The objects field names will be used to build the list of values.
          * * __choices:__ _{string[]}_ - List of choices as an array of strings. 
          * * __choices:__ _{IChoice[]}_ - List of choices as an array of IChoice objects. 
@@ -3398,7 +3398,7 @@ declare global {
  * Provides global access to the SDK's built-in prompts. New prompts can be added by simply 
  * adding a new function using `builder.Prompts.myPrompt = function (session, prompt, options) { }`.
  * If you are using TypeScript you will first want to add the signature for your prompt to the [IPrompts](/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.__global.iprompts)
- * interface using interface decleration merging.
+ * interface using interface declaration merging.
  * @example
  * <pre><code>
  * declare global {
@@ -3595,7 +3595,7 @@ export class LocalizedRegExpRecognizer extends IntentRecognizer {
 }
 
 /**
- * Intent recognizer plugin that detects a users intent using Microsofts [Language Understanding Intelligent Service (LUIS)](https://luis.ai)
+ * Intent recognizer plugin that detects a users intent using Microsoft's [Language Understanding Intelligent Service (LUIS)](https://luis.ai)
  * The service URLs for multiple LUIS models (apps) can be passed in to support recognition 
  * across multiple languages. 
  */
@@ -3614,7 +3614,7 @@ export class LuisRecognizer extends IntentRecognizer {
      * @param utterance The text to pass to LUIS for recognition.
      * @param serviceUri URI for LUIS App hosted on http://luis.ai.
      * @param callback Callback to invoke with the results of the intent recognition step.
-     * @param callback.err Error that occured during the recognition step.
+     * @param callback.err Error that occurred during the recognition step.
      * @param callback.intents List of intents that were recognized.
      * @param callback.entities List of entities that were recognized.
      */
@@ -3626,7 +3626,7 @@ export class LuisRecognizer extends IntentRecognizer {
  */
 export class EntityRecognizer {
     /**
-     * Searches for the first occurance of a specific entity type within a set.
+     * Searches for the first occurrence of a specific entity type within a set.
      * @param entities Set of entities to search over.
      * @param type Type of entity to find.
      */
@@ -3719,7 +3719,7 @@ export class EntityRecognizer {
  *   test for. It will get called as expected when the user send your dialog a message but if you 
  *   call another prompt or dialog from your closure it will get called a second time with the 
  *   results from the prompt/dialog. You can typically test for this second case by checking for the 
- *   existant of an `args.resumed` property. It's important to avoid getting yourself into an 
+ *   existence of an `args.resumed` property. It's important to avoid getting yourself into an 
  *   infinite loop which can be easy to do.
  * * Unlike a waterfall your dialog will not automatically end. It will remain the active dialog 
  *   until you call [session.endDialog()](/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#enddialog). 
@@ -3876,7 +3876,7 @@ export class UniversalBot extends Library  {
     /** 
      * Registers or returns a connector for a specific channel. 
      * @param channelId Unique ID of the channel. Use a channelId of '*' to reference the default connector.
-     * @param connector (Optional) connector to register. If ommited the connector for __channelId__ will be returned. 
+     * @param connector (Optional) connector to register. If omitted the connector for __channelId__ will be returned. 
      */    
     connector(channelId: string, connector?: IConnector): IConnector;
     
@@ -3906,7 +3906,7 @@ export class UniversalBot extends Library  {
      * Sends a message to the user without disrupting the current conversations dialog stack.
      * @param messages The message (or array of messages) to send the user.
      * @param done (Optional) function to invoke once the operation is completed. 
-     * @param done.err Any error that occured during the send.
+     * @param done.err Any error that occurred during the send.
      * @param done.addresses An array of address objects returned for each individual message within the batch. These address objects contain the ID of the posted messages so can be used to update or delete a message in the future.
      */
     send(messages: IIsMessage|IMessage|IMessage[], done?: (err: Error, addresses?: IAddress[]) => void): void;
@@ -4011,13 +4011,13 @@ export class ConsoleConnector implements IConnector {
 export class Middleware {
     /** 
      * Installs a piece of middleware that manages the versioning of a bots dialogs.
-     * @param options Settings to configure the bahviour of the installed middleware. 
+     * @param options Settings to configure the behaviour of the installed middleware. 
      */
     static dialogVersion(options: IDialogVersionOptions): IMiddlewareMap;
 
     /** 
      * Adds a first run experience to a bot. The middleware uses Session.userData to store the latest version of the first run dialog the user has been through. Incrementing the version number can force users to run back through either the full or a partial first run dialog. 
-     * @param options Settings to configure the bahviour of the installed middleware. 
+     * @param options Settings to configure the behaviour of the installed middleware. 
      */
     static firstRun(options: IFirstRunOptions): IMiddlewareMap;
 
