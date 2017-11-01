@@ -204,6 +204,7 @@ var EntityRecognizer = (function () {
                     }
                 }
                 score = tokenScore / value.length;
+                score = score > 1 ? 1 : score;
             }
             if (score >= threshold) {
                 matches.push({ index: index, entity: choice, score: score });
