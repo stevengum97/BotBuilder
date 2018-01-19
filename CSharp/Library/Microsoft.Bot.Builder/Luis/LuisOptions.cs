@@ -79,7 +79,7 @@ namespace Microsoft.Bot.Builder.Luis
             if (source.Staging.HasValue) target.Staging = source.Staging.Value;
             if (source.TimezoneOffset.HasValue) target.TimezoneOffset = source.TimezoneOffset.Value;
             if (source.Verbose.HasValue) target.Verbose = source.Verbose.Value;
-            if (source.BingSpellCheckSubscriptionKey != null) target.BingSpellCheckSubscriptionKey = source.BingSpellCheckSubscriptionKey;
+            if (!string.IsNullOrWhiteSpace(source.BingSpellCheckSubscriptionKey)) target.BingSpellCheckSubscriptionKey = source.BingSpellCheckSubscriptionKey;
         }
     }
 }
