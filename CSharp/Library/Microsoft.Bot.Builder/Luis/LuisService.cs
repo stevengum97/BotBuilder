@@ -168,7 +168,7 @@ namespace Microsoft.Bot.Builder.Luis
             {
                 queryParameters.Add($"verbose={Uri.EscapeDataString(Convert.ToString(Verbose))}");
             }
-            if (BingSpellCheckSubscriptionKey != null)
+            if (!string.IsNullOrWhiteSpace(BingSpellCheckSubscriptionKey))
             {
                 queryParameters.Add($"bing-spell-check-subscription-key={Uri.EscapeDataString(BingSpellCheckSubscriptionKey)}");
             }
